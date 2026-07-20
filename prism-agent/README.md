@@ -54,7 +54,7 @@ cp .env.example .env        # va qiymatlarni to'ldiring
 - [x] **Bosqich 3** — RAG tool (`query_knowledge_base` importlib orqali ulandi)
 - [x] **Bosqich 4** — Rasm generatsiya (Replicate, URL botga yuboriladi)
 - [x] **Bosqich 5** — Vazifalar tool (Supabase `tasks`: create / list / update)
-- [ ] **Bosqich 6** — Guruh monitoring (Telethon + Whisper)
+- [x] **Bosqich 6** — Guruh monitoring (Telethon + fuzzy matcher + Whisper)
 - [ ] **Bosqich 7** — Mac mini deploy (`launchd`)
 
 ## Xavfsizlik

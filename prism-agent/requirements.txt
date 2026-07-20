@@ -1,0 +1,28 @@
+# Prism AI Agent — Python bog'liqliklari (Python 3.11+)
+
+# --- LLM orkestrator ---
+anthropic>=0.40.0
+
+# --- Telegram bot (long polling) ---
+aiogram>=3.13.0
+
+# --- Guruh monitoring userbot ---
+telethon>=1.36.0
+
+# --- OpenAI: Whisper (transkript) + embedding ---
+openai>=1.55.0
+
+# --- Supabase (Postgres + pgvector) klient ---
+supabase>=2.9.0
+
+# --- Rasm generatsiya ---
+replicate>=1.0.0
+
+# --- Fuzzy ism matching (imlo xatosiga chidamli) ---
+rapidfuzz>=3.10.0
+
+# --- .env yuklash ---
+python-dotenv>=1.0.1
+
+# --- HTTP (fayl yuklash va h.k.) ---
+httpx>=0.27.0

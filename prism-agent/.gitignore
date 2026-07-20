@@ -1,0 +1,24 @@
+# Prism Agent — maxfiy va vaqtinchalik fayllar
+
+# Muhit o'zgaruvchilari (API kalitlar shu yerda — hech qachon commit qilinmaydi)
+.env
+.env.local
+
+# Telethon userbot sessiyasi (shaxsiy akkount kalitlari)
+*.session
+*.session-journal
+
+# Loglar
+logs/*.log
+logs/*.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# OS
+.DS_Store

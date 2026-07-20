@@ -86,6 +86,12 @@ REPLICATE_IMAGE_MODEL = _get("REPLICATE_IMAGE_MODEL", "black-forest-labs/flux-1.
 
 # --- Obsidian RAG ---
 OBSIDIAN_VAULT_PATH = _get("OBSIDIAN_VAULT_PATH")
+# 02_obsidian_rag_sync.py faylining yo'li (query_knowledge_base shu yerdan import qilinadi).
+# Default: repo ildizidagi 02_obsidian_rag_sync.py (prism-agent'ning bir pog'ona tepasida).
+OBSIDIAN_RAG_MODULE_PATH = _get(
+    "OBSIDIAN_RAG_MODULE_PATH",
+    str((_PROJECT_ROOT.parent / "02_obsidian_rag_sync.py")),
+)
 
 # --- Monitoring ---
 MONITOR_NAME_VARIANTS = _get_str_list("MONITOR_NAME_VARIANTS")

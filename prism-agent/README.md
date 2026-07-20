@@ -51,7 +51,7 @@ cp .env.example .env        # va qiymatlarni to'ldiring
 
 - [x] **Bosqich 1** — Orkestrator asosi (Claude API + tool-use routing, stub tool'lar)
 - [x] **Bosqich 2** — Telegram bot (aiogram, long polling, xotira + ruxsat filtri)
-- [ ] **Bosqich 3** — RAG tool (`query_knowledge_base` ulash)
+- [x] **Bosqich 3** — RAG tool (`query_knowledge_base` importlib orqali ulandi)
 - [ ] **Bosqich 4** — Rasm generatsiya (Replicate)
 - [ ] **Bosqich 5** — Vazifalar tool (Supabase `tasks`)
 - [ ] **Bosqich 6** — Guruh monitoring (Telethon + Whisper)

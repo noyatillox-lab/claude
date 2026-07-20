@@ -79,6 +79,10 @@ TELETHON_SESSION_NAME = _get("TELETHON_SESSION_NAME", "prism_userbot")
 # --- Supabase ---
 SUPABASE_URL = _get("SUPABASE_URL")
 SUPABASE_SERVICE_KEY = _get("SUPABASE_SERVICE_KEY")
+# Vazifalar jadvali nomi (o'zingiznikiga moslashtirish uchun .env orqali o'zgartiriladi)
+SUPABASE_TASKS_TABLE = _get("SUPABASE_TASKS_TABLE", "tasks")
+# Guruh monitoring loglari jadvali (Bosqich 6)
+SUPABASE_MONITOR_TABLE = _get("SUPABASE_MONITOR_TABLE", "monitor_hits")
 
 # --- Replicate ---
 REPLICATE_API_TOKEN = _get("REPLICATE_API_TOKEN")

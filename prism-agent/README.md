@@ -53,7 +53,7 @@ cp .env.example .env        # va qiymatlarni to'ldiring
 - [x] **Bosqich 2** — Telegram bot (aiogram, long polling, xotira + ruxsat filtri)
 - [x] **Bosqich 3** — RAG tool (`query_knowledge_base` importlib orqali ulandi)
 - [x] **Bosqich 4** — Rasm generatsiya (Replicate, URL botga yuboriladi)
-- [ ] **Bosqich 5** — Vazifalar tool (Supabase `tasks`)
+- [x] **Bosqich 5** — Vazifalar tool (Supabase `tasks`: create / list / update)
 - [ ] **Bosqich 6** — Guruh monitoring (Telethon + Whisper)
 - [ ] **Bosqich 7** — Mac mini deploy (`launchd`)
 

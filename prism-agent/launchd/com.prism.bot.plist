@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Prism Telegram bot — launchd servisi (Mac mini fon xizmati).
+  <PRISM_DIR> va <PYTHON> ni o'zingiznikiga almashtiring, keyin:
+    cp com.prism.bot.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.prism.bot.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.prism.bot</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string><PYTHON></string>
+        <string>-m</string>
+        <string>bot.telegram_bot</string>
+    </array>
+
+    <!-- .env va modullar shu papkadan topiladi -->
+    <key>WorkingDirectory</key>
+    <string><PRISM_DIR></string>
+
+    <!-- Mac mini yonganda avtomatik ishga tushsin va yiqilsa qayta ko'tarilsin -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- Loglar -->
+    <key>StandardOutPath</key>
+    <string><PRISM_DIR>/logs/launchd_bot.out.log</string>
+    <key>StandardErrorPath</key>
+    <string><PRISM_DIR>/logs/launchd_bot.err.log</string>
+</dict>
+</plist>

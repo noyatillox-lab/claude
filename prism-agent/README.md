@@ -55,7 +55,7 @@ cp .env.example .env        # va qiymatlarni to'ldiring
 - [x] **Bosqich 4** — Rasm generatsiya (Replicate, URL botga yuboriladi)
 - [x] **Bosqich 5** — Vazifalar tool (Supabase `tasks`: create / list / update)
 - [x] **Bosqich 6** — Guruh monitoring (Telethon + fuzzy matcher + Whisper)
-- [ ] **Bosqich 7** — Mac mini deploy (`launchd`)
+- [x] **Bosqich 7** — Mac mini deploy (`launchd` plist'lar + install.sh)
 
 ## Xavfsizlik
 

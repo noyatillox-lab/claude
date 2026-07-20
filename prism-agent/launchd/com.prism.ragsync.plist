@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Obsidian RAG sync — bilim bazasini davriy yangilab turadi (har 30 daqiqada).
+  02_obsidian_rag_sync.py'ni "sync" rejimida ishga tushiradi.
+  <PRISM_DIR>, <PYTHON> va <RAG_SCRIPT> ni almashtiring.
+    cp com.prism.ragsync.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.prism.ragsync.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.prism.ragsync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string><PYTHON></string>
+        <string><RAG_SCRIPT></string>
+        <string>sync</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string><PRISM_DIR></string>
+
+    <!-- Har 1800 soniyada (30 daqiqa) bir marta ishga tushadi -->
+    <key>StartInterval</key>
+    <integer>1800</integer>
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string><PRISM_DIR>/logs/launchd_ragsync.out.log</string>
+    <key>StandardErrorPath</key>
+    <string><PRISM_DIR>/logs/launchd_ragsync.err.log</string>
+</dict>
+</plist>

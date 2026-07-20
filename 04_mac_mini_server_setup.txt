@@ -1,0 +1,64 @@
+============================================================
+04_mac_mini_server_setup.txt  (REFERENCE / namuna)
+Prism AI Agent'ni Mac mini uy serverida launchd bilan doim ishlatish.
+============================================================
+
+Uchta fon servisi bor:
+  1) com.prism.bot      -> Telegram bot (aiogram, long polling)
+  2) com.prism.watcher  -> Guruh monitoring (Telethon userbot)
+  3) com.prism.ragsync  -> Obsidian bilim bazasini davriy yangilash (30 daqiqa)
+
+Barcha plist shablonlar: prism-agent/launchd/ papkasida.
+Ularda <PRISM_DIR>, <PYTHON>, <RAG_SCRIPT> placeholder'lari install.sh tomonidan
+avtomatik to'ldiriladi.
+
+------------------------------------------------------------
+1-QADAM — Muhitni tayyorlash
+------------------------------------------------------------
+cd /Users/SIZNING_USER/prism-agent          # o'z yo'lingiz
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env                          # va barcha kalitlarni to'ldiring
+
+------------------------------------------------------------
+2-QADAM — Telethon sessiyasini bir marta yaratish (MUHIM)
+------------------------------------------------------------
+Telethon birinchi ishga tushganda telefon raqami va Telegram kodini so'raydi.
+launchd fon rejimida buni kirita olmaysiz, shuning uchun AVVAL qo'lda:
+
+    source .venv/bin/activate
+    python -m monitor.group_watcher
+    # telefon raqami + kod kiriting -> "aktiv" yozuvini ko'rgach Ctrl+C
+
+Bu prism_userbot.session faylini yaratadi. Endi launchd avtomatik ishlaydi.
+
+------------------------------------------------------------
+3-QADAM — launchd servislarini o'rnatish
+------------------------------------------------------------
+    cd launchd
+    chmod +x install.sh
+    ./install.sh
+
+install.sh: plist'larni to'ldirib ~/Library/LaunchAgents/ ga joylaydi va yuklaydi.
+
+------------------------------------------------------------
+4-QADAM — Tekshirish
+------------------------------------------------------------
+    launchctl list | grep com.prism           # 3 ta servis ko'rinishi kerak
+    tail -f ../logs/bot.log                    # bot loglari
+    tail -f ../logs/group_watcher.log          # monitoring loglari
+
+------------------------------------------------------------
+Boshqarish
+------------------------------------------------------------
+To'xtatish:   launchctl unload ~/Library/LaunchAgents/com.prism.bot.plist
+Qayta yuklash: launchctl unload ... && launchctl load ...
+Kod yangilangach: git pull && ./launchd/install.sh (servislar qayta yuklanadi)
+
+------------------------------------------------------------
+Mac mini sozlamalari (tavsiya)
+------------------------------------------------------------
+- System Settings > Energy: "Prevent automatic sleeping" (server uxlamasin)
+- System Settings > General > Login Items: kerak bo'lsa avtomatik login
+- launchd RunAtLoad+KeepAlive tufayli servislar qayta ishga tushishda avtomatik ko'tariladi

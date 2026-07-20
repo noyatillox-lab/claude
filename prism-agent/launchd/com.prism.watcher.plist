@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Prism guruh monitoring (Telethon userbot) — launchd servisi.
+  <PRISM_DIR> va <PYTHON> ni almashtiring, keyin:
+    cp com.prism.watcher.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.prism.watcher.plist
+
+  ESLATMA: Telethon birinchi ishga tushganda telefon raqami va kod so'raydi.
+  Shuning uchun avval bir marta QO'LDA ishga tushiring (python -m monitor.group_watcher),
+  sessiya (.session) yaratilgach launchd bilan avtomatlashtiring.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.prism.watcher</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string><PYTHON></string>
+        <string>-m</string>
+        <string>monitor.group_watcher</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string><PRISM_DIR></string>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string><PRISM_DIR>/logs/launchd_watcher.out.log</string>
+    <key>StandardErrorPath</key>
+    <string><PRISM_DIR>/logs/launchd_watcher.err.log</string>
+</dict>
+</plist>
